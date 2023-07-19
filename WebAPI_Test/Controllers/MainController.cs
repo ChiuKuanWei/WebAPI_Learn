@@ -213,5 +213,24 @@ namespace WebAPI_Test.Controllers
 
             return NoContent();
         }
+
+        //-----------------------------------------------------------------------------------------------------
+        public class getpacket
+        {
+            public string Name { get; set; }
+            public int Age { get; set; }
+        }
+
+        private List<getpacket> get()
+        {
+            List<getpacket> getpackets = new List<getpacket>();
+            string[,] arrayTwo = new string[,] { { "David", "24" }, { "Alice", "30" }, { "Bob", "40" } };
+            for (int i = 0; i < arrayTwo.GetLength(0); i++)
+            {
+                getpackets.Add(new getpacket { Name = arrayTwo[i, 0].ToString(), Age = int.Parse(arrayTwo[i, 1].ToString()) });
+            }
+            return getpackets;
+        }
+        //-----------------------------------------------------------------------------------------------------
     }
 }
